@@ -1,5 +1,5 @@
 name: Run CI on new tag
-on: 
+on:
   push:
     tags:
       - "v*.*.*"
@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
-    if: github.event.head_commit.author.name != 'actions'
+    #if: github.event.head_commit.author.name != 'actions'
     steps:
     - name: Checkout repo
       uses: actions/checkout@v3
