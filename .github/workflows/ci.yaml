@@ -34,7 +34,9 @@ jobs:
         path: jars/cip-keycloak-extensions.jar
 
   create_github_release:
+    name: create github release
     runs-on: ubuntu-latest
+    needs: build
     steps:
     - run: mkdir jars
     - uses: actions/download-artifact@v2
