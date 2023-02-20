@@ -20,3 +20,8 @@ jobs:
         zip -r ../jars/cip-keycloak-extensions.jar .
     - name: Create GitHub Release
       uses: softprops/action-gh-release@v1
+      with:
+        generate_release_notes: true
+        files: |
+          jars/cip-keycloak-extensions.jar
+        draft: false
