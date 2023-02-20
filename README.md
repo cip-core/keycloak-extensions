@@ -1,6 +1,5 @@
 # keycloak-extensions
 
-
 ## Custom mappers
 
 Mappers allowing to get unique identifier string based on the email, removing domain name, periods, and '@' sign.
