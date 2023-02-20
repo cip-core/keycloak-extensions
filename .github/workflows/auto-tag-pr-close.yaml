@@ -1,0 +1,25 @@
+name: Auto tag when closing PR
+on:
+  #push:
+  #  branches:
+  #    - main
+  pull_request:
+    types:
+      - closed
+    branches:
+      - main
+
+jobs:
+
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    if: github.event.head_commit.author.name != 'actions'
+    steps:
+    - uses: actions/checkout@v3
+    - name: Bump version and push tag
+      uses: anothrNick/github-tag-action@1.61.0
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        WITH_V: true
