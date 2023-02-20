@@ -17,7 +17,8 @@ jobs:
       contents: write
     if: github.event.head_commit.author.name != 'actions'
     steps:
-    - uses: actions/checkout@v3
+    - name: Checkout
+      uses: actions/checkout@v3
     - name: Bump version and push tag
       uses: anothrNick/github-tag-action@1.61.0
       env:
@@ -28,7 +29,8 @@ jobs:
         mkdir jars
         cd src
         zip -r ../jars/cip-keycloak-extensions.jar .
-    - uses: actions/upload-artifact@v2
+    - name: Saving artifacts
+      uses: actions/upload-artifact@v2
       with:
         name: cip-keycloak-extensions
         path: jars/cip-keycloak-extensions.jar
@@ -38,12 +40,16 @@ jobs:
     runs-on: ubuntu-latest
     needs: build
     steps:
+    - name: Checkout
+      uses: actions/checkout@v3
     - run: mkdir jars
-    - uses: actions/download-artifact@v2
+    - name: Downloading saved artifacts
+      uses: actions/download-artifact@v2
       with:
         name: cip-keycloak-extensions
     - run: mv cip-keycloak-extensions.jar jars/cip-keycloak-extensions.jar
-    - uses: softprops/action-gh-release@v1
+    - name: Creating Github Release
+      uses: softprops/action-gh-release@v1
       with:
         target_commitish: ${{ github.head_ref || github.ref }}
         generate_release_notes: true
