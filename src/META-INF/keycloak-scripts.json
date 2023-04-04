@@ -1,0 +1,29 @@
+{
+    "mappers": [
+        {
+            "name": "CIP: Email to name in kebab-case string",
+            "fileName": "cip-email-to-name-pascal-case-string.js",
+            "description": "Mapper to get unique name kebab-case string based on the email, removing domain name, periods, and '@' sign. For example, mapped on an email address of the form 'first.last-ext@domain.com' will return 'first-last-ext'"
+        },
+        {
+            "name": "CIP: Email to name in PascalCase string",
+            "fileName": "cip-email-to-name-pascal-case-string.js",
+            "description": "Mapper to get unique name in PascalCase string based on the email, removing domain name, periods, and '@' sign. For example, mapped on an email address of the form 'first.last-ext@domain.com' will return 'FirstLastExt'"
+        },
+        {
+            "name": "CIP: Email to name in snake_case string",
+            "fileName": "cip-email-to-name-pascal-case-string.js",
+            "description": "Mapper to get unique name in snake_case string based on the email, removing domain name, periods, and '@' sign. For example, mapped on an email address of the form 'first.last-ext@domain.com' will return 'first_last_ext'"
+        },
+        {
+            "name": "CIP: Email to name in 99l string",
+            "fileName": "cip-email-to-name-99l-case-string.js",
+            "description": "Mapper to get unique name as a lowercase string using '99' as the word separator, based on the email, removing domain name, periods, and '@' sign. For example, mapped on an email address of the form 'first.last-ext@domain.com' will return 'first99last99ext'"
+        },
+        {
+            "name": "CIP: Email to name in 99U string",
+            "fileName": "cip-email-to-name-99u-case-string.js",
+            "description": "Mapper to get unique name as a uppercase string using '99' as the word separator, based on the email, removing domain name, periods, and '@' sign. For example, mapped on an email address of the form 'first.last-ext@domain.com' will return 'First99Last99Ext'"
+        }
+    ]
+}
