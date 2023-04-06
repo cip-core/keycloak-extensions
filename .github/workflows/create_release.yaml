@@ -32,3 +32,4 @@ jobs:
           #body: ${{ steps.tag_version.outputs.changelog }}
           bodyFile: "README.md"
           artifacts: "jars/cip-keycloak-extensions.jar"
+          makeLatest: true
