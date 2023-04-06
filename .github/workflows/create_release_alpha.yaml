@@ -1,0 +1,35 @@
+name: 🚀 Create Release - Alpha
+
+on:
+  push:
+    branches:
+      - alpha
+
+jobs:
+
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: 🔃 Checkout code
+        uses: actions/checkout@v3
+      - name: 🔖 Bump version and push tag
+        id: tag_version
+        uses: mathieudutour/github-tag-action@v6.1
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+      - name: 📦 Create jar file
+        run: |
+          mkdir jars
+          cd src
+          zip -r ../jars/cip-keycloak-extensions.jar .
+      - name: 🛎️ Create a Github release
+        uses: ncipollo/release-action@v1
+        with:
+          tag: ${{ steps.tag_version.outputs.new_tag }}
+          name: ALPHA Release ${{ steps.tag_version.outputs.new_tag }}
+          #body: ${{ steps.tag_version.outputs.changelog }}
+          bodyFile: "README.md"
+          artifacts: "jars/cip-keycloak-extensions.jar"
+          makeLatest: false
